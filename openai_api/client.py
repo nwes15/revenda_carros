@@ -27,11 +27,15 @@ def get_car_ai_bio(model, brand, year):
 
 
 from groq import Groq
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 def get_car_ai_bio(model, brand, year):
     # Configurando a chave da API diretamente
     client = Groq(
-        api_key="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"  # Substitua pela sua chave real
+        GROQ_API_KEY = os.getenv('GROQ_API_KEY')  # Substitua pela sua chave real
     )
 
     # Criando o prompt para o modelo Groq
